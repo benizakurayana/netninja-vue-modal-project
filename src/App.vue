@@ -11,7 +11,19 @@
       <p>Grab your ninja swag for half price!</p>
     </Modal>
   </div>  
+
+  <div v-if="showModalTwo">
+    <Modal theme="" @close="toggleModalTwo">
+      <template v-slot:links>
+        <a href="#">sign up for the giveaway</a>
+        <a href="#">more info about it</a>
+      </template>
+      <h1>New Year Givaway!</h1>
+      <p>Grab your net ninja swag for 70% off!</p>
+    </Modal>
+  </div>  
   <button @click.alt="toggleModal">open modal (alt click)</button>
+  <button @click="toggleModalTwo">open modal</button>
 </template>
 
 <script>
@@ -24,11 +36,15 @@ export default {
     return {
       title: 'My First Vue App!',
       showModal: false,
+      showModalTwo: false,
     }
   },
   methods: {
     toggleModal() {
       this.showModal = !this.showModal
+    },
+    toggleModalTwo() {
+      this.showModalTwo = !this.showModalTwo
     }
   }
 }
